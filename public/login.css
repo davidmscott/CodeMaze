@@ -3,13 +3,24 @@ body {
 	background-image:;
 }
 
+h1, h2 {
+	text-align: center;
+}
+
+.logInHere {
+
+	float: center;
+}
 .container-fluid {
 
 	float: center;
 }
-
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
 .choices {
-	float: left;
+	float: center;
     margin: 50px;
     padding: 50px;
     max-width: 500px;
