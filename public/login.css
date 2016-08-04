@@ -12,6 +12,7 @@ h1, h2 {
 	float: center;
 }
 .container-fluid {
+	margin: 0 auto;
 
 	
 }
@@ -21,9 +22,8 @@ h1, h2 {
 }
 .choices {
 	float: center;
-    margin: 50px;
     padding: 50px;
-    max-width: 500px;
+    max-width: 600px;
     height: 300px;
     margin: 0 auto;
 }
