@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/patrickghidossi/CodeMaze/issues"
   },
-  "homepage": "https://github.com/patrickghidossi/CodeMaze#readme"
+  "homepage": "https://github.com/patrickghidossi/CodeMaze#readme",
+  "devDependencies": {}
 }
