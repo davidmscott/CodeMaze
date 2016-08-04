@@ -1,0 +1,102 @@
+Questions
+Installing Homebrew - What is homebrew for MacOS or Scoop for Windows
+Installing Node with homebrew
+Installing Sublime
+Installing Sublime hinter / linter /
+Saving to Git using GitHub
+Creating a common repository on Git
+How to use Git
+	Pull or Download or Clone from Git using GitHub
+	Create a common repository on Git
+	Commit or Push to Git using GitHub
+List of ways to write a function
+List of ways to call a function
+Write a callback function
+How to use JQuery
+How to use Bootstrap
+How to write a for loop
+How to create a barebones server
+How to install and run Mongo & Mongoose
+******************************************
+
+What are the terminal commands, in order, to install an Express Server on an MacOS Computer?(Assume Homebrew installed.) For everything that 
+requires a name, i.e. filename of directory, type name.
+
+1)  mkdir name 
+HINT: Create location to install Express in.  NOTE: Directory name can't have express in it and cannot contain capital letters.  mkdir is short for make directory.
+
+2)  cd name
+HINT: How to get into the location where to install Express.
+NOTE: cd is short for change directory.
+
+3) npm init
+HINT: Command to create the package.json file.
+NOTE: npm is short for node package manager.  If the package.json file is created, this command will read the file and update with the desired options.
+
+4)  npm install --save express OR npm install express --save  
+HINT: Command to install express in the directory.
+NOTE:  The --save adds the express dependencies to the package.json file.
+
+5)  touch .gitignore
+HINT: Create a file which list what files and directories NOT to send to Git.
+NOTE: Items listed in this are not sent to Git.  Don't send to display hidden files on the Mac, CMD-Shift-.
+
+6)  touch name.js
+HINT: Create a file which starts runs the node server.
+NOTE: A barebones server will have the folloing:
+	var express = require("express");
+
+	var app = express();
+
+	var PORT = process.env.port || 8000;
+
+	// if we want to handle post requests
+
+	// $ npm install --save body-parser
+
+	var bodyParser = require("body-parser");
+
+	app.use(bodyParser.urlencoded({extended: false}));
+	app.use(bodyParser.json());
+
+	// if we want to handle session (login, etc)
+
+	// $ npm install --save express-session
+
+	app.use(session({
+		secret: "Secret Key",
+		resave: false,
+		saveUninitialized: false
+	}));
+
+	//do this for every request so it prints it in the browser console.
+	app.use(function(req, res, next) {
+		console.log(req.url);
+		next();
+	});
+
+	// if we want to respond to GET requests for "/"
+	app.get("/", function(req, res) {
+		res.sendFile(__dirname + "/index.html");
+	});
+
+	// if we want to respond to POST requests for "/api"
+	app.post("/api", function(req, res) {
+		res.send("success");
+	});
+
+	// if we want to serve static files out of ./public
+	app.use(express.static("public"));
+
+	// actually start the server
+	app.listen(PORT, function() {
+		console.log("Listening on port " + PORT);
+	});
+
+7)  mkdir public
+HINT: Create a location for the html files.  
+NOTE: Usually the directory name is public and is where all the html files are stored.
+
+8)  node name.js
+HINT:  Ready to start the Node server.
+NOTE:  If any changes are made to the name.js file the server has to be restarted.  Using nodemon instead of node,  will restart the server automatically when a server file is saved.
