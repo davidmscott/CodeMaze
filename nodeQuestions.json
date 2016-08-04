@@ -1,0 +1,105 @@
+{"expressQuestions" :[
+
+	{ 	"questionNo": 1,
+		"answer": "mkdir name", 
+		"hint": "Create location to install Express in.",
+		"note": "Directory name can't have express in it and cannot contain capital letters.  mkdir is short for make directory."
+	},
+	{
+
+		"questionNo": 2,
+		"answer": "cd name",
+		"hint": "How to get into the location where to install Express.",
+		"note": "cd is short for change directory."
+	},
+
+	{
+	 	"questionNo": 3,
+	 	"answer": "npm init",
+		"hint": "Command to create the package.json file.",
+		"note": "npm is short for node package manager.  If the package.json file is created, this command will read the file and update with the desired options."
+	},
+
+	{
+		"questionNo": 4,
+		"answer": "npm install --save express OR npm install express --save", 
+		"hint": "Command to install express in the directory.",
+		"note": "The --save adds the express dependencies to the package.json file."
+	},
+
+	{
+		"questionNo": 5,
+		"answer": "touch .gitignore",
+		"hint": "Create a file which list what files and directories NOT to send to Git.",
+		"note": "Items listed in this are not sent to Git.  Don't send to display hidden files on the Mac, CMD-Shift-."
+	},
+
+	{
+		"questionNo": 6,
+		"answer": "touch name.js",
+		"hint": "Create a file which starts runs the node server.",
+		"note": "A barebones server will have the folloing:
+		var express = require(\"express\");
+
+		var app = express();
+
+		var PORT = process.env.port || 8000;
+
+		// if we want to handle post requests
+
+		// $ npm install --save body-parser
+
+		var bodyParser = require(\"body-parser\");
+
+		app.use(bodyParser.urlencoded({extended: false}));
+		app.use(bodyParser.json());
+
+		// if we want to handle session (login, etc)
+
+		// $ npm install --save express-session
+
+		app.use(session({
+			secret: \"Secret Key\",
+			resave: false,
+			saveUninitialized: false
+		}));
+
+		//do this for every request so it prints it in the browser console.
+		app.use(function(req, res, next) {
+			console.log(req.url);
+			next();
+		});
+
+		// if we want to respond to GET requests for \"/\"
+		app.get(\"/\", function(req, res) {
+			res.sendFile(__dirname + \"/index.html\");
+		});
+
+		// if we want to respond to POST requests for \"/api\"
+		app.post(\"/api\", function(req, res) {
+			res.send(\"success\");
+		});
+
+		// if we want to serve static files out of ./public
+		app.use(express.static(\"public\"));
+
+		// actually start the server
+		app.listen(PORT, function() {
+			console.log(\"Listening on port \" + PORT);
+		});"
+	},
+
+	{
+		"questionNo": 7,
+		"answer": "mkdir public",
+		"hint": "Create a location for the html files.",
+		"note": "Usually the directory name is public and is where all the html files are stored."
+	},
+
+	{
+		"questionNo": 8,
+		"answer": "node name.js",
+		"hint": "Ready to start the Node server.",
+		"note": "If any changes are made to the name.js file the server has to be restarted.  Using nodemon instead of node,  will restart the server automatically when a server file is saved."
+	}
+]}
