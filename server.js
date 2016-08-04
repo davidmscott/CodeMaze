@@ -1,18 +1,18 @@
-var express = require("express");
-
-var app = express();
-
-var PORT = process.env.PORT || 8000;
+var express = require('express');
 
 var session = require('express-session');
 
+var app = express();
+
 var bodyParser = require('body-parser');
+
+var PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(session({
-	secret: "Our Key",
+	secret: 'OurKey',
 	resave: false,
 	saveUninitialized: false
 }));
@@ -35,3 +35,4 @@ app.use(express.static("public"));
 app.listen(PORT, function() {
 	console.log("Navigate the maze on port " + PORT);
 });
+
