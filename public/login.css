@@ -1,10 +1,22 @@
 body {
-	background-color: cornflowerBlue;
-	background-image:;
+
+	background-image: url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg");
 }
 
+img {
+    ;
+}
+.headerBox {
+
+	background-color: white;
+}
 h1, h2 {
 	text-align: center;
+	color: crimson;
+	font-size: 50px;
+	font-weight: bold;
+	background-color: white;
+	font-family: 'Inconsolata', monospace;
 }
 
 .logInHere {

@@ -1,0 +1,36 @@
+Installing Express
+Installing Node
+Bootstrap
+JQuery
+Callback Functions
+GitHub
+Sublime
+Sublime Linter
+Write a Function
+Install Homebrew
+
+
+
+
+
+
+
+
+Installing Homebrew - What is homebrew for MacOS or Scoop for Windows
+Installing Node with homebrew
+Installing Sublime
+Installing Sublime hinter / linter /
+Saving to Git using GitHub
+Creating a common repository on Git
+How to use Git
+	Pull or Download or Clone from Git using GitHub
+	Create a common repository on Git
+	Commit or Push to Git using GitHub
+List of ways to write a function
+List of ways to call a function
+Write a callback function
+How to use JQuery
+How to use Bootstrap
+How to write a for loop
+How to create a barebones server
+How to install and run Mongo & Mongoose
