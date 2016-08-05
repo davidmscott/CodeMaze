@@ -2,9 +2,10 @@
 	Functions for dealing with users
 */
 var UserLog = require("./UserLog.js"); 
+ 
+//var questions = require("./expressQuestions.json");
 
 module.exports = function(app){
-
 
 	app.post('/api/login', function(req, res){
 		// TODO: Make this for more than one user
@@ -55,4 +56,33 @@ module.exports = function(app){
 			}
 		}
 	});
+
+/*
+	app.post('/api/questionChoice', function(req, res){
+		console.log ("setting questions maze");
+		var mazeOption = req.body.mazeOption;
+		if (mazeOption == 'express'){
+
+		} else if (mazeOption == 'no2') {
+
+		} else if (mazeOption == 'no3') {
+
+		} else if (mazeOption == 'no4') {
+
+		} else if (mazeOption == 'no5') {
+
+		} else if (mazeOption == 'no6') {
+
+		} else if (mazeOption == 'no7') {
+
+		} else if (mazeOption == 'no8') {
+
+		} else if (mazeOption == 'no9') {
+
+		} else {
+			return undefined;
+		}
+})
+
+*/
 };
