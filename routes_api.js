@@ -1,13 +1,14 @@
-
-
 /*
 	Functions for dealing with users
 */
-var UserLog = require("./UserLog.js");
+var UserLog = require("./UserLog.js"); 
+
+module.exports = function(app){
 
 
 	app.post('/api/login', function(req, res){
 		// TODO: Make this for more than one user
+		console.log ('reached /api/login');
 		if (UserLog.checkLogin(req.body.username, req.body.password)) {
 			// if the user logs in, we set the session
 			// variable for future requests (now the user is
@@ -54,4 +55,4 @@ var UserLog = require("./UserLog.js");
 			}
 		}
 	});
-
+};

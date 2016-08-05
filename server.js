@@ -17,6 +17,12 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+var addRoutesPages = require("./routes_pages.js");
+addRoutesPages(app);
+
+var addAPIRoutes = require('./routes_api.js');
+addAPIRoutes(app);
+
 app.use(express.static("public"));
 
 app.use(function(req, res, next) {
