@@ -2,20 +2,20 @@ body {
 
 	background-image: url("../public/Images/ScreenShot.png");
 }
-
-img {
-    ;
+#bigbox {
+	background-color: orange;
+	width: 700px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
 }
-.headerBox {
 
-	background-color: white;
 }
 h1, h2 {
 	text-align: center;
 	color: crimson;
-	font-size: 50px;
+	font-size: 30px;
 	font-weight: bold;
-	background-color: white;
 	font-family: 'Inconsolata', monospace;
 }
 
@@ -28,13 +28,13 @@ h1, h2 {
     margin: 0 auto;
     border-width: 10px;
     border-color: black;
-    font-size: 50px;
-    color: crimson;
+    font-size: 20px;
+    color: black;
 }
 
 #submit, #register {
 	float: center;
-	font-size: 60px;
+	font-size: 20px;
 	color: black;
 	background-color: #ffcc00;
 }
