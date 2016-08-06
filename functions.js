@@ -1,3 +1,4 @@
+var xpos = 2, ypos = 0;
 var currentpos = [xpos,ypos];
 var direction = [0, 0];
 var questionNum = 0;
@@ -6,12 +7,10 @@ var questionNum = 0;
 function move(){
 	while (mazearray[xpos + direction[0]][ypos + direction[1]]) {
 		displayPlayer();
-
 		if (mazearray[xpos + direction[0]][ypos + direction[1]] === 2) {
 			callQ();
 			return;
 		}
-
 		if (mazearray[xpos + direction[0]][ypos + direction[1]] === 3) {
 			youWin();
 			return;
@@ -27,22 +26,22 @@ function callQ() {
 	// need to create :hover and assign to possible answers to arrows
 	if (questionList[questionNum].up !== "") {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] - 1)).css({
-			'background-image': '/uparrow.img/'
+			'background-image': './public/Images/up.png/'
 		});
 	}
 		if (questionList[questionNum].right !== "") {
 		$('#col' + (currentpos[0] + 1)+ 'row' + currentpos[1]).css({
-			'background-image': '/rightarrow.img/'
+			'background-image': './public/Images/right.png/'
 		});
 	}
 		if (questionList[questionNum].down !== "") {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] + 1)).css({
-			'background-image': '/downarrow.img/'
+			'background-image': './public/Images/down.png/'
 		});
 	}
 		if (questionList[questionNum].left !== "") {
 		$('#col' + (currentpos[0] - 1) + 'row' + currentpos[1]).css({
-			'background-image': '/leftarrow.img/'
+			'background-image': './public/Images/left.png/'
 		});
 	}
 }
@@ -71,14 +70,33 @@ function submitQ() {
 }
 
 function displayPlayer() {
-	var timer = setTimeout(function() {
-		$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
-			'background-color': 'none'
-		});
+	setTimeout(function() {
+		if (direction !== [0,0]) {
+			$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
+				'background-color': 'none',
+				'background-image': 'none'
+			});
+		}
+		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
+			for (var i = -1; i <= 1; i + 2) {
+				if (mazearray[currentpos[0] + i][currentpos[1]]) {
+					$('#col' + (currentpos[0] + i) + 'row' + currentpos[1]).css({
+					'background-image': 'none'
+					});
+				}
+			}
+			for (var j = -1; j <= 1; j + 2) {
+				if (mazearray[currentpos[0]][currentpos[1] + j]) {
+					$('#col' + currentpos[0] + 'row' + (currentpos[1] + j)).css({
+					'background-image': 'none'
+					});
+				}
+			}
+		}
 		xpos += direction[0];
 		ypos += direction[1];
 		$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
-			'background-image': '/playerimage.img/'
+			'background-image': './public/Images/player.png'
 		});
 	}, 500);
 }
