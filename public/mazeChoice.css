@@ -29,10 +29,6 @@ h2 {
 }
 /*----------Begin clickable images array------------------------------*/
 
-.row {
-
-
-}
 
 .container {
 	width: 100%;
@@ -51,7 +47,12 @@ h2 {
 }
 
 .col1 {
-	width:32%
+	/*display: inline;*/
+	width: 32%
 	vertical-align: middle;
-	margin: auto;
+	margin-left: 2%;
+}
+
+img {
+	width: 30%;
 }
