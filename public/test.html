@@ -13,7 +13,7 @@
 			console.log ('testing is starting');
 			$('#outStatement').html("doing a jquery get for expressQuestions.json ");
 			id = "express";
-			$.get('/api/quesSet',
+			$.get("/api/quesSet",
 				{
 
 				},
@@ -24,7 +24,7 @@
 					$('#outStatement').html("from file expressQuestions.json "); 
 					$('#output').html(""); //reset our output element
 					$('#output').append('<p>' + data + '</p>');
-				}, 'json'
+				} //,'json'
 			);
 		}
 		$(document).ready(function() {
@@ -43,7 +43,10 @@
 	</div>
 	<div id="outStatement"></div>
 	<div id="output"></div>
+<<<<<<< HEAD
 	<h3><%= expressQuestions.questionSet %></h3>
+=======
+>>>>>>> origin/master
 
 </body>
 </html>
