@@ -59,6 +59,7 @@ module.exports = function(app){
 		}
 	});
 
+//app.local.expQuestions = require('./expressQuestions.json');
 
 	app.get('/api/quesSet', function(req, res){
 		//Determine which question set to send...
@@ -71,7 +72,10 @@ module.exports = function(app){
 				res.send(data);
 				console.log('data is sent');
 			}
-		}); 
+		});
+	});
+
+/*
 		// console.log('req.params.id' + req.params.id); 
 		// if (req.params.id  == "express"){
 		// 	console.log("express received and sending the file.")
@@ -81,6 +85,6 @@ module.exports = function(app){
 		// 	res.send("error");
 		// }
 	});
-
+*/
 
 };
