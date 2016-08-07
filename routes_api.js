@@ -66,6 +66,7 @@ module.exports = function(app){
 		console.log('received request to send expressQuestions.json');
 		fs.readFile("expressQuestions.json", 'utf8', function(err, data){
 			console.log('sending data');
+			console.log(data);
 			if (err){
 				console.log(err);
 			} else {

@@ -13,7 +13,7 @@
 			console.log ('testing is starting');
 			$('#outStatement').html("doing a jquery get for expressQuestions.json ");
 			id = "express";
-			$.get('/api/quesSet',
+			$.get("/api/quesSet",
 				{
 
 				},
@@ -24,13 +24,22 @@
 					$('#outStatement').html("from file expressQuestions.json "); 
 					$('#output').html(""); //reset our output element
 					$('#output').append('<p>' + data + '</p>');
-				}, 'json'
+				} //,'json'
 			);
 		}
 		$(document).ready(function() {
 			//testing();
 			$('#request').click(testing);
 		});
+
+/*		$.get( "ajax/test.html", function( data ) {
+  $( ".result" ).html( data );
+  alert( "Load was performed." );
+});
+*/
+
+
+
 		
 	</script>
 </head>
@@ -43,7 +52,6 @@
 	</div>
 	<div id="outStatement"></div>
 	<div id="output"></div>
-	<h3><%= expressQuestions.questionSet %></h3>
 
 </body>
 </html>
