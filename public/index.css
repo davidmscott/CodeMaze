@@ -1,0 +1,63 @@
+body {
+
+	background-image: url("./Images/IMG_5422.jpg");
+}
+
+/*url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg")*/
+
+/** {
+   border: 1px solid red !important;
+}
+*/
+.row {
+	margin-left: 40px;
+	margin-right: 20 px;
+	margin-top : 20px;
+	margin-bottom : 20px;	
+}
+
+.jumbotron {
+	background-color: linen;
+}
+
+#bigbox {
+	float: center;
+	background-color: gainsboro;
+	width: 700px;
+    border: 10px solid steelblue;
+    padding: 25px;
+    margin: 25px;
+}
+
+h1, h2 {
+	text-align: center;
+	color: crimson;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: 'Inconsolata', monospace;
+}
+
+#logInHere  {
+
+	float: center;
+    padding: 50px;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    border-width: 10px;
+    border-color: black;
+    font-size: 20px;
+    color: black;
+}
+
+#submit, #register {
+	float: center;
+	font-size: 20px;
+	color: black;
+	background-color: #ffcc00;
+	border-radius: 10px;
+}
+
+
+
+}

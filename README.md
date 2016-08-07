@@ -1,5 +1,5 @@
 # CodeMaze
 Code Learning Modules
 
-Lessons on Common Code Processes
+Lessons on Common Web Programming Processes
 

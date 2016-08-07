@@ -1,10 +1,13 @@
 /*
 	Functions for dealing with users
 */
+var fs = require("fs");
+
 var UserLog = require("./UserLog.js"); 
+ 
+//var questions = require("./expressQuestions.json");
 
 module.exports = function(app){
-
 
 	app.post('/api/login', function(req, res){
 		// TODO: Make this for more than one user
@@ -55,4 +58,29 @@ module.exports = function(app){
 			}
 		}
 	});
+
+
+	app.get('/api/quesSet', function(req, res){
+		//Determine which question set to send...
+		console.log('received request to send expressQuestions.json');
+		fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+			console.log('sending data');
+			if (err){
+				console.log(err);
+			} else {
+				res.send(data);
+				console.log('data is sent');
+			}
+		}); 
+		// console.log('req.params.id' + req.params.id); 
+		// if (req.params.id  == "express"){
+		// 	console.log("express received and sending the file.")
+		//	res.send(fs.readFileSync("expressQuestion.json")); //option 1
+			//res.sendFile(__dirname+expressQuestion.json); //option 2
+		// } else {
+		// 	res.send("error");
+		// }
+	});
+
+
 };

@@ -1,15 +1,45 @@
 body {
-	background-color: cornflowerBlue;
-	background-image:;
+
+	background-image: url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg");
 }
 
+img {
+    ;
+}
+.headerBox {
+
+	background-color: white;
+}
 h1, h2 {
 	text-align: center;
+	color: crimson;
+	font-size: 50px;
+	font-weight: bold;
+	background-color: white;
+	font-family: 'Inconsolata', monospace;
 }
 
-.logInHere {
+#logInHere  {
 
 	float: center;
+    padding: 50px;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    border-width: 10px;
+    border-color: black;
+    font-size: 50px;
+    color: crimson;
+}
+
+#submit, #register {
+	float: center;
+	font-size: 60px;
+	color: black;
+	background-color: #ffcc00;
+}
+
+
 }
 .container-fluid {
 	margin: 0 auto;
@@ -33,4 +63,10 @@ h1, h2 {
 	height: 30px;
 
 
+}
+
+#submit, #register {
+	font-size: 20px;
+	color: black;
+	background-color: #ffcc00;
 }

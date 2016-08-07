@@ -1,0 +1,16 @@
+h1{
+	font-family : Impact;
+	text-decoration: underline;
+	font-weight: bold;
+}
+ 
+body {
+	background:radial-gradient(circle, #5C47FF, #8780FF, #B5B7FF); ;
+}
+
+#userAns {
+	border: 2px dotted gray;
+	border-radius: 6px;
+}
+
+
