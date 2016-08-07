@@ -67,13 +67,11 @@ module.exports = function(app){
 		console.log (req.params.id);
 		if (req.params.id == 'express'){
 			fs.readFile("expressQuestions.json", 'utf8', function(err, data){
-				console.log(data.expressQuestion);
-				question = data.expressQuestions[0];
+				console.log(data);
 				if (err){
 					console.log(err);
 				} else {
 					res.send(data);
-					console.log(question);
 					console.log('data is sent');
 				}
 			});
