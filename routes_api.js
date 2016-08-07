@@ -1,6 +1,8 @@
 /*
 	Functions for dealing with users
 */
+var fs = require("fs");
+
 var UserLog = require("./UserLog.js"); 
  
 //var questions = require("./expressQuestions.json");
@@ -57,32 +59,28 @@ module.exports = function(app){
 		}
 	});
 
-/*
-	app.post('/api/questionChoice', function(req, res){
-		console.log ("setting questions maze");
-		var mazeOption = req.body.mazeOption;
-		if (mazeOption == 'express'){
 
-		} else if (mazeOption == 'no2') {
+	app.get('/api/quesSet', function(req, res){
+		//Determine which question set to send...
+		console.log('received request to send expressQuestions.json');
+		fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+			console.log('sending data');
+			if (err){
+				console.log(err);
+			} else {
+				res.send(data);
+				console.log('data is sent');
+			}
+		}); 
+		// console.log('req.params.id' + req.params.id); 
+		// if (req.params.id  == "express"){
+		// 	console.log("express received and sending the file.")
+		//	res.send(fs.readFileSync("expressQuestion.json")); //option 1
+			//res.sendFile(__dirname+expressQuestion.json); //option 2
+		// } else {
+		// 	res.send("error");
+		// }
+	});
 
-		} else if (mazeOption == 'no3') {
 
-		} else if (mazeOption == 'no4') {
-
-		} else if (mazeOption == 'no5') {
-
-		} else if (mazeOption == 'no6') {
-
-		} else if (mazeOption == 'no7') {
-
-		} else if (mazeOption == 'no8') {
-
-		} else if (mazeOption == 'no9') {
-
-		} else {
-			return undefined;
-		}
-})
-
-*/
 };
