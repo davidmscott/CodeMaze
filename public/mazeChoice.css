@@ -1,6 +1,7 @@
 body {
 	background-image: url("./Images/IMG_5422.jpg");
 	/*background-image: url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg");*/
+	/*something cool for later: http://www.w3schools.com/cssref/pr_background-blend-mode.asp*/
 }
 * {
    border: 1px solid red !important;
@@ -26,23 +27,31 @@ h2 {
 	font-weight: bold;
 	font-family: 'Inconsolata', monospace;
 }
+/*----------Begin clickable images array------------------------------*/
+
+.row {
 
 
-.container{
-	width: 500px;	
+}
+
+.container {
+	width: 100%;
+	margin-left:auto;
+	margin-right: auto;	
 }
 
 
-.col-centered{
-    float: none;
-    margin: 0 auto;
+
+.row {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-
-.choices {
-	float: center;
-    padding: 50px;
-    max-width: 600px;
-    height: 300px;
-    margin: 0 auto;
+.col1 {
+	width:32%
+	vertical-align: middle;
+	margin: auto;
 }
