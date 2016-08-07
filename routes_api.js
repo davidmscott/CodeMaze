@@ -61,19 +61,23 @@ module.exports = function(app){
 
 //app.local.expQuestions = require('./expressQuestions.json');
 
-	app.get('/api/quesSet', function(req, res){
+	app.get('/api/quesSet/:id', function(req, res){
 		//Determine which question set to send...
 		console.log('received request to send expressQuestions.json');
-		fs.readFile("expressQuestions.json", 'utf8', function(err, data){
-			console.log('sending data');
-			console.log(data);
-			if (err){
-				console.log(err);
-			} else {
-				res.send(data);
-				console.log('data is sent');
-			}
-		});
+		console.log (req.params.id);
+		if (req.params.id == 'express'){
+			fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+				console.log(data.expressQuestion);
+				question = data.expressQuestions[0];
+				if (err){
+					console.log(err);
+				} else {
+					res.send(data);
+					console.log(question);
+					console.log('data is sent');
+				}
+			});
+		}
 	});
 
 /*
