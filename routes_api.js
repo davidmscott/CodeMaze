@@ -77,7 +77,7 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 	//	}
 	});
 
-	app.get('/api/maze/id:', function(req, res){
+	app.get('/api/maze/:id', function(req, res){
 	//	if(UserLog.registerUser(username, password)) {
 	//		req.session.user = username;
 			if (req.params.id == 'express'){
