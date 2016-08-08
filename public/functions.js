@@ -8,22 +8,6 @@ var maze = "";
 var count = 0;
 var moving = true;
 
-// function move() {
-// 	while (mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
-// 		displayPlayer();
-// 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
-// 			callQ();
-// 			return;
-// 		}
-// 		if (mazearray[currentpos[0]][currentpos[1]] === 3) {
-// 			youWin();
-// 			return;
-// 		}
-// 	}
-// 	youLose();
-// 	return;
-// }
-
 function move1() {
 	if (moving && mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
