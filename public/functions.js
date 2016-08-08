@@ -197,6 +197,14 @@ function pressEnter(evt) {
 	}
 }
 
+function logOut(){
+	$.post('/api/logout',
+		function (data){
+			window.location.href = "index.html";
+		}
+	);
+}
+
 function getQ() {
 	var id = "express";
 	$.get("/api/quesSet/" + id,
@@ -224,4 +232,5 @@ $(document).ready(function() {
 	timer = setInterval(function() {
 		move1();
 	}, 300);
+	$('#logout').click(logOut);
 });
