@@ -38,6 +38,7 @@
 
 	
 <script>
+
 		function tryToLogin() {
 			$.post('/api/login',
 			{
@@ -53,6 +54,7 @@
 		}
 
 		function tryToRegister() {
+			// debugger;
 			$.post('/api/register',
 			{
 				username: $('#username').val(),
