@@ -1,27 +1,47 @@
 var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
-var questionList;
-var mazearray;
+var questionList, mazearray, timer;
 var rowz = 12;
 var colz = 20;
 var maze = "";
 var count = 0;
+var moving = true;
 
-function move(){
-	while (mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
+// function move() {
+// 	while (mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
+// 		displayPlayer();
+// 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
+// 			callQ();
+// 			return;
+// 		}
+// 		if (mazearray[currentpos[0]][currentpos[1]] === 3) {
+// 			youWin();
+// 			return;
+// 		}
+// 	}
+// 	youLose();
+// 	return;
+// }
+
+function move1() {
+	if (moving && mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
 			callQ();
+			moving = false;
 			return;
 		}
 		if (mazearray[currentpos[0]][currentpos[1]] === 3) {
 			youWin();
+			clearInterval(timer);
 			return;
 		}
+	} else if (moving) {
+		youLose();
+		clearInterval(timer);
+		return;
 	}
-	youLose();
-	return;
 }
 
 function callQ() {
@@ -56,19 +76,23 @@ function submitQ() {
 		alert("You must type your answer in the text box.");
 	} else if (answer === questionList[questionNum].up) {
 		direction = [0, -1];
-		move();
+		// move();
+		moving = true;
 		return;
 	} else if (answer === questionList[questionNum].right) {
 		direction = [1, 0];
-		move();
+		// move();
+		moving = true;
 		return;
 	} else if (answer === questionList[questionNum].down) {
 		direction = [0, 1];
-		move();
+		// move();
+		moving = true;
 		return;
 	} else if (answer === questionList[questionNum].left) {
 		direction = [-1, 0];
-		move();
+		// move();
+		moving = true;
 		return;
 	} else {
 		alert("Please enter a valid answer.");
@@ -139,9 +163,6 @@ function buildMaze() {
 		"backgroundColor": "black",
 		"height": $(".cell").width()
 	});
-	// $("input").css({
-	// 	"width": $("#board").width()
-	// });
 }
 
 function onResize() {
@@ -154,9 +175,6 @@ function onResize() {
 	$("#board").css({
 		"height": $(".cell").height() * rowz
 	});
-	// $("input").css({
-	// 	"width": $("#board").width()
-	// });
 }
 
 function pressEnter(evt) {
@@ -166,7 +184,6 @@ function pressEnter(evt) {
 }
 
 function getQ() {
-	console.log("get q");
 	var id = "express";
 	$.get("/api/quesSet/" + id,
 		function(data) {
@@ -177,19 +194,20 @@ function getQ() {
 }
 
 function getMaze() {
-	console.log("get maze");
 	var id = "express";
 	$.get("/api/maze/" + id,
 		function(data) {
 			mazearray = JSON.parse(data);
-			move();
+			move1();
 		}
 	);
 }
 
 $(document).ready(function() {
-	console.log("ready");
 	buildMaze();
 	getQ();
 	$("#answer").keyup(pressEnter);
+	timer = setInterval(function() {
+		move1();
+	}, 300);
 });
