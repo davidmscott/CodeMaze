@@ -77,17 +77,19 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 		}
 	});
 
-	app.get('/api/maze', function(req, res){
+	app.get('/api/maze/id:', function(req, res){
 		if(UserLog.registerUser(username, password)) {
 			req.session.user = username;
-			fs.readFile("mazearr.json", 'utf8', function(err, data){
-				if (err){
-					console.log(err);
-				} else {
-					res.send(data);
-					console.log('mazearr is sent');
-				}				
-			});
+			if (req.params.id == 'express'){
+				fs.readFile("mazearr.json", 'utf8', function(err, data){
+					if (err){
+						console.log(err);
+					} else {
+						res.send(data);
+						console.log('data is sent');
+					}
+				});
+			}
 		}else {
 			res.redirect("index.html");
 		}
