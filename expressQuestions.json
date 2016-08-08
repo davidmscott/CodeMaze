@@ -2,8 +2,8 @@
 
 	{ 	"questionNo": 1,
 		"down": "mkdir name",
-		"left": "1",
-		"right": "2",
+		"left": "rm name",
+		"right": "touch name",
 		"up": "", 
 		"hint": "Create location to install Express in.",
 		"note": "Directory name can't have express in it and cannot contain capital letters.  mkdir is short for make directory."
@@ -13,8 +13,8 @@
 
 		"questionNo": 2,
 		"right": "cd name",
-		"down": "1",
-		"left": "2",
+		"down": "mv name",
+		"left": "man name",
 		"up": "", 
 		"hint": "How to get into the location where to install Express.",
 		"note": "cd is short for change directory."
@@ -23,8 +23,8 @@
 	{
 	 	"questionNo": 3,
 	 	"down": "npm init",
-	 	"up": "1",
-		"right": "2",
+	 	"up": "rm init",
+		"right": "mv init",
 		"left": "", 
 		"hint": "Command to create the package.json file.",
 		"note": "npm is short for node package manager.  If the package.json file is created, this command will read the file and update with the desired options."
@@ -33,8 +33,8 @@
 	{
 		"questionNo": 4,
 		"right": "npm install express --save", 
-		"down": "1",
-		"left": "2",
+		"down": "npm express --save",
+		"left": "npm express install --save",
 		"up": "", 
 		"hint": "Command to install express in the directory.",
 		"note": "The --save adds the express dependencies to the package.json file."
@@ -43,8 +43,8 @@
 	{
 		"questionNo": 5,
 		"up": "touch .gitignore",
-		"right": "1",
-		"down": "2",
+		"right": "create .gitignore",
+		"down": "echo > .gitignore",
 		"left": "",
 		"hint": "Create a file which list what files and directories NOT to send to Git.",
 		"note": "Items listed in this are not sent to Git.  Don't send to display hidden files on the Mac, CMD-Shift-."
@@ -53,8 +53,8 @@
 	{
 		"questionNo": 6,
 		"right": "touch name.js",
-		"left": "1",
-		"up": "2",
+		"left": "filecreate name.js",
+		"up": "openFile name.js",
 		"down": "",
 		"hint": "Create a file which starts runs the node server.",
 		"note": "A barebones server will have the following:<BR>var express = require(\"express\");<BR>  var app = express();<BR>var PORT = process.env.port || 8000;<BR>// if we want to handle post requests<BR>// $ npm install --save body-parser<BR>var bodyParser = require(\"body-parser\");<BR>app.use(bodyParser.urlencoded({extended: false}));<BR>app.use(bodyParser.json());<BR>// if we want to handle session (login, etc)<BR>// $ npm install --save express-session<BR>app.use(session({<BR>secret: \"Secret Key\",<BR>resave: false,<BR>saveUninitialized: false<BR>}));<BR>//do this for every request so it prints it in the browser console.<BR>app.use(function(req, res, next) {<BR>console.log(req.url);<BR>next();<BR>});<BR>// if we want to respond to GET requests for \"/\"<BR>app.get(\"/\", function(req, res) {<BR>res.sendFile(__dirname + \"/index.html\");<BR>});<BR>// if we want to respond to POST requests for \"/api\"<BR>app.post(\"/api\", function(req, res) {<BR>res.send(\"success\");<BR>});<BR>// if we want to serve static files out of ./public<BR>app.use(express.static(\"public\"));<BR>// actually start the server<BR>app.listen(PORT, function() {<BR>console.log(\"Listening on port \" + PORT);<BR>});"
@@ -63,8 +63,8 @@
 	{
 		"questionNo": 7,
 		"down": "mkdir public",
-		"up": "1",
-		"right": "2",
+		"up": "md public",
+		"right": "createdir",
 		"left": "",
 		"hint": "Create a location for the html files.",
 		"note": "Usually the directory name is public and is where all the html files are stored."
@@ -73,8 +73,8 @@
 	{
 		"questionNo": 8,
 		"right": "node name.js",
-		"down": "1",
-		"left": "2",
+		"down": "start node name.js",
+		"left": "run node name.js ",
 		"up": "",
 		"hint": "Ready to start the Node server.",
 		"note": "If any changes are made to the name.js file the server has to be restarted.  Using nodemon instead of node,  will restart the server automatically when a server file is saved."
