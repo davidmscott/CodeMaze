@@ -70,7 +70,9 @@
 		}
 		#yourprocess {
 			flex: 3;
-			font-family : "Copperplate Gothic Light",fantasy;
+			color: #EAE1FF;
+			font-size: 24px;
+			font-family : Arial;
 			text-decoration: underline;
 			font-weight: bold;
 			border: 4px dashed black;
@@ -88,8 +90,8 @@
 		}
 
 		input, #question, #potentialAnswer {
-			height: 5vh;
-			font-family : "Copperplate Gothic Light",fantasy;
+			height: 2vh;
+			font-family : Arial;
 			font-weight: bold;
 			margin-top: 4px;
 			margin-bottom: 4px;
@@ -102,11 +104,16 @@
 		.cell {
 			background-size: cover;
 		}
+		h2 {
+			font-size: 30px;
+			margin-bottom: 6px;
+			margin-top: 6px;
+		}
 	</style>
 </head>
 <body onresize="onResize()">
 
-	<h1>EXPRESS MAZE</h1>
+	<h1 id ="title">EXPRESS MAZE</h1>
 
 	<div id="flex">
 		<div id="board"></div>
