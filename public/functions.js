@@ -83,24 +83,20 @@ function submitQ() {
 	} else if (answer === questionList[questionNum].up) {
 		direction = [0, -1];
 		dir = "up";
-		// move();
 		moving = true;
 		return;
 	} else if (answer === questionList[questionNum].right) {
 		direction = [1, 0];
-		// move();
 		moving = true;
 		dir = "right";
 		return;
 	} else if (answer === questionList[questionNum].down) {
 		direction = [0, 1];
-		// move();
 		moving = true;
 		dir = "down";
 		return;
 	} else if (answer === questionList[questionNum].left) {
 		direction = [-1, 0];
-		// move();
 		moving = true;
 		dir = "left";
 		return;
@@ -110,7 +106,6 @@ function submitQ() {
 }
 
 function displayPlayer() {
-	// setTimeout(function() {
 		if (direction[0] !== 0 || direction[1] !== 0) {
 			$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 				'background-color': 'transparent',
@@ -138,7 +133,6 @@ function displayPlayer() {
 		$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/player.png')"
 		});
-	// }, 500);
 }
 
 function youWin() {
