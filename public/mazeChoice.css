@@ -1,16 +1,19 @@
-body {
+/*body {
 	/*background-image: url("./Images/IMG_5422.jpg");*/
 	/*background-image: url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg");*/
 	/*maybe something cool for later: http://www.w3schools.com/cssref/pr_background-blend-mode.asp*/
 	/*background-image: url("./Images/Drawing_in_Space_a_maze_1.jpg");
 	background-size: cover;*/
-  
-background: linear-gradient(270deg, #0ef6ba, #32f60e, #f6c40e, #f23806, #f2069a, #7a06f2);
+	/*gradient animation made with: https://www.gradient-animator.com/ -In order for it to function 
+	must add a closure for body (after last infinite but before the first @)*/ 
+
+/*background: linear-gradient(270deg, #0ef6ba, #32f60e, #f6c40e, #f23806, #f2069a, #7a06f2);
 background-size: 1200% 1200%;
 
--webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 30s ease infinite;
-animation: AnimationName 30s ease infinite;
+-webkit-animation: AnimationName 20s ease infinite;
+-moz-animation: AnimationName 20s ease infinite;
+animation: AnimationName 20s ease infinite;
+}*/
 
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
@@ -27,23 +30,46 @@ animation: AnimationName 30s ease infinite;
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-}
 
-/*gradient animation made with: https://www.gradient-animator.com/*/
-/** {
-   border: 1px solid red !important;
-}*/
+/*____________________________________________________________________________________________*/
+
 .jumbotron {
-	background-color: purple;
+    /*background: linear-gradient (270deg, magenta, red, orange, yellow, blue ); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(magenta, red, orange, yellow, blue ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(magenta, red, orange, yellow, blue ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(magenta, red, orange, yellow, blue ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(magenta, red, orange, yellow, blue );  /*Standard syntax (must be last) */
+    background-size: 1200% 1200%;
+    -webkit-animation: jumbo 10s ease infinite;
+	-moz-animation: jumbo 10s ease infinite;
+	animation: jumbo 10s ease infinite;*/
 }
 
+	
+@keyframes jumbo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+    /*animating the background-position property not the colors.*/
+}
+@-webkit-keyframes jumbo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes jumbo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+/*-------------------------------------------------------------*/
 h1	{
 	text-align: center;
-
 	color: black;
 	font-size: 50px;
 	font-weight: bold;
 	font-family: 'Inconsolata', monospace;
+
 }
 
 h2 {
@@ -54,8 +80,27 @@ h2 {
 	font-weight: bold;
 	font-family: 'Inconsolata', monospace;
 }
-/*----------Begin clickable images array------------------------------*/
 
+@keyframe grow {
+
+	0% {
+		transform: scale(.1);
+	}
+
+	70% {
+
+		transform: scale(1.4);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+/*----------Begin clickable images array------------------------------*/
+* {
+   border: 1px solid black !important;
+}
 
 .container {
 	width: 100%;
@@ -69,7 +114,7 @@ h2 {
 	width: 60%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 5px;
+	margin-top: 12px;
 	margin-bottom: 5px;
 }
 
@@ -77,10 +122,12 @@ h2 {
 	/*display: inline;*/
 	width: 32%
 	vertical-align: middle;
-	margin-left: 2%;
+	margin-left: 1.8%;
 	background-color: white;
 }
 
 img {
 	width: 30%;
 }
+
+

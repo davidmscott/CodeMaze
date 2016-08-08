@@ -1,27 +1,37 @@
 var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
-var questionList;
-var mazearray;
+var questionList, mazearray, timer, dir;
 var rowz = 12;
 var colz = 20;
 var maze = "";
 var count = 0;
+var moving = true;
 
-function move(){
-	while (mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
+function move1() {
+	if (moving && mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
+			if (questionList[questionNum]) {
+				$("#correctSteps").append('<p>' + (questionNum + 1) + '. ' + questionList[questionNum][dir] + '</p><br />');
+			}
 			callQ();
+			moving = false;
 			return;
 		}
 		if (mazearray[currentpos[0]][currentpos[1]] === 3) {
+			if (questionList[questionNum]) {
+				$("#correctSteps").append('<p>' + (questionNum + 1) + '. ' + questionList[questionNum][dir] + '</p>');
+			}
 			youWin();
+			clearInterval(timer);
 			return;
 		}
+	} else if (moving) {
+		youLose();
+		clearInterval(timer);
+		return;
 	}
-	youLose();
-	return;
 }
 
 function callQ() {
@@ -32,21 +42,45 @@ function callQ() {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] - 1)).css({
 			'background-image': "url('./Images/up.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + currentpos[0] + 'row' + (currentpos[1] - 1)).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].up);
+			}
+		);
 	}
 		if (questionList[questionNum].right !== "") {
 		$('#col' + (currentpos[0] + 1)+ 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/right.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + (currentpos[0] + 1)+ 'row' + currentpos[1]).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].right);
+			}
+		);
 	}
 		if (questionList[questionNum].down !== "") {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] + 1)).css({
 			'background-image': "url('./Images/down.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + currentpos[0] + 'row' + (currentpos[1] + 1)).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].down);
+			}
+		);
 	}
 		if (questionList[questionNum].left !== "") {
 		$('#col' + (currentpos[0] - 1) + 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/left.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + (currentpos[0] - 1) + 'row' + currentpos[1]).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].left);
+			}
+		);
 	}
 }
 
@@ -56,19 +90,23 @@ function submitQ() {
 		alert("You must type your answer in the text box.");
 	} else if (answer === questionList[questionNum].up) {
 		direction = [0, -1];
-		move();
+		dir = "up";
+		moving = true;
 		return;
 	} else if (answer === questionList[questionNum].right) {
 		direction = [1, 0];
-		move();
+		moving = true;
+		dir = "right";
 		return;
 	} else if (answer === questionList[questionNum].down) {
 		direction = [0, 1];
-		move();
+		moving = true;
+		dir = "down";
 		return;
 	} else if (answer === questionList[questionNum].left) {
 		direction = [-1, 0];
-		move();
+		moving = true;
+		dir = "left";
 		return;
 	} else {
 		alert("Please enter a valid answer.");
@@ -76,7 +114,6 @@ function submitQ() {
 }
 
 function displayPlayer() {
-	// setTimeout(function() {
 		if (direction[0] !== 0 || direction[1] !== 0) {
 			$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 				'background-color': 'transparent',
@@ -104,12 +141,13 @@ function displayPlayer() {
 		$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/player.png')"
 		});
-	// }, 500);
 }
 
 function youWin() {
 	// temporary
-	alert("You win");
+	$('.cell').css({
+		'background-color': 'transparent'
+	});
 	// write function for what happens when player completes the maze
 }
 
@@ -139,9 +177,6 @@ function buildMaze() {
 		"backgroundColor": "black",
 		"height": $(".cell").width()
 	});
-	// $("input").css({
-	// 	"width": $("#board").width()
-	// });
 }
 
 function onResize() {
@@ -154,9 +189,6 @@ function onResize() {
 	$("#board").css({
 		"height": $(".cell").height() * rowz
 	});
-	// $("input").css({
-	// 	"width": $("#board").width()
-	// });
 }
 
 function pressEnter(evt) {
@@ -166,7 +198,6 @@ function pressEnter(evt) {
 }
 
 function getQ() {
-	console.log("get q");
 	var id = "express";
 	$.get("/api/quesSet/" + id,
 		function(data) {
@@ -177,19 +208,20 @@ function getQ() {
 }
 
 function getMaze() {
-	console.log("get maze");
 	var id = "express";
 	$.get("/api/maze/" + id,
 		function(data) {
 			mazearray = JSON.parse(data);
-			move();
+			move1();
 		}
 	);
 }
 
 $(document).ready(function() {
-	console.log("ready");
 	buildMaze();
 	getQ();
 	$("#answer").keyup(pressEnter);
+	timer = setInterval(function() {
+		move1();
+	}, 300);
 });
