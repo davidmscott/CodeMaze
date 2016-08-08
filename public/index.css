@@ -1,9 +1,11 @@
 body {
 
-	background-image: url("./Images/IMG_5422.jpg");
+	margin:0;
+	padding:0;
+  	background-image: linear-gradient(yellow 8%, darkorange);
+	background-size: cover;
 }
 
-/*url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg")*/
 
 /** {
    border: 1px solid red !important;
@@ -17,17 +19,39 @@ body {
 }
 
 .jumbotron {
-	background-color: linen;
+	margin:0;
+	padding:0;
+	width: 100%;
+    background: linear-gradient (yellow, gold, orange, darkorange); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient( yellow, gold, orange, darkorange); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(yellow, gold, orange, darkorange); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(yellow, gold, orange, darkorange); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(yellow, gold, orange, darkorange);  /*Standard syntax (must be last) */
+    background-size: 1200% 1200%;
+    -webkit-animation: jumbo 15s ease infinite;
+	-moz-animation: jumbo 15s ease infinite;
+	animation: jumbo 15s ease infinite;*/
 }
 
-#bigbox {
-	float: center;
-	background-color: gainsboro;
-	width: 700px;
-    border: 10px solid steelblue;
-    padding: 25px;
-    margin: 25px;
+@keyframes jumbo {
+    0%{background-position:50% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:50% 0%}
+    /*animating the background-position property not the colors.*/
+    /*need to animate perpendicular to your gradient otherwise won't see anything. 
+    Also need to have background-size of gradient be 1200% or there abouts to get the color shift.*/
 }
+@-webkit-keyframes jumbo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes jumbo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 
 h1, h2 {
 	text-align: center;

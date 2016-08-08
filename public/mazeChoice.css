@@ -1,25 +1,25 @@
 body {
-  background-image: radial-gradient(circle at bottom left,
-      yellow,
-      #f06d06
-    );
+	margin:0;
+	padding:0;
+  	background-image: linear-gradient(yellow 8%, darkorange);
 	background-size: cover;
 }
-
 
 /*____________________________________________________________________________________________*/
 
 .jumbotron {
-	height: 150px;
-    /*background: linear-gradient (270deg, magenta, red, orange, yellow, blue ); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient( magenta, red, orange, blue, purple ); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(magenta, red, orange, blue, purple ); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(magenta, red, orange, blue, purple ); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(magenta, red, orange, blue, purple );  /*Standard syntax (must be last) */
-    background-size: 170% 170%;
-    -webkit-animation: jumbo 10s ease infinite;
-	-moz-animation: jumbo 10s ease infinite;
-	animation: jumbo 10s ease infinite;*/
+	margin:0;
+	padding:0;
+	width: 100%;
+    background: linear-gradient (yellow, gold, orange, darkorange); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient( yellow, gold, orange, darkorange); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(yellow, gold, orange, darkorange); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(yellow, gold, orange, darkorange); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(yellow, gold, orange, darkorange);  /*Standard syntax (must be last) */
+    background-size: 1200% 1200%;
+    -webkit-animation: jumbo 15s ease infinite;
+	-moz-animation: jumbo 15s ease infinite;
+	animation: jumbo 15s ease infinite;*/
 }
 
 	
@@ -61,6 +61,9 @@ h2 {
 	
 }
 
+#logOut {
+}
+
 
 
 /*----------Begin clickable images array------------------------------*/
@@ -75,12 +78,14 @@ h2 {
 		
 }
 
-
+button { width: 70px; background-color: red; border-radius: 50%}
+#button {margin-left: 10%}
 
 .row {
-	width: 60%;
-	margin-left: auto;
-	margin-right: auto;
+	width: 40%;
+	padding: 0;
+	margin-left: 30%;
+	margin-right: 30%;
 	margin-top: 12px;
 	margin-bottom: 5px;
 }

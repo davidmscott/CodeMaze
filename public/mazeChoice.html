@@ -8,12 +8,17 @@
 
 
 	<div class="jumbotron" >
-		  <h1>Practice Web Dev</h1> 
-		  <h2>Click to Choose a Game</h2> 
+		  <h1>Codemaze</h1> 
+		  <h2>Click a Game to Practice Your Terminal Commands </h2> 
+
 	</div>
 
 
-<div class = "container">
+<div class = "container-fluid">
+
+	<div id ="button">
+		<button type="button" id="logOut">Logout</button>
+	</div>
 
 		<div class="row">
 			  
@@ -68,7 +73,21 @@
 
 
 
-<script></script>
+<script>
+	
+			function logOut(){
+			$.post('/api/logout',
+				function (data){
+					console.log('data = ' + data);
+					window.location.href = "index.html";
+				}
+			);
+		}
+
+		$(document).ready(function() {
+			$('#logout').click(logOut);
+		});
+</script>
 
 </body>
 </html>
