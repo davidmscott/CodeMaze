@@ -153,6 +153,9 @@ function youWin() {
 
 function youLose() {
 	// temporary
+	$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
+		'background-image': "url('./Images/player-lose.png')"
+	});
 	alert("You lose");
 	// write function for what happens when player loses/goes off the board...return to last question?
 }
