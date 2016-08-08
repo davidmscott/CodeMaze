@@ -24,7 +24,7 @@ module.exports = function(app) {
 			return;
 		}
 		//send forward map.html
-		res.sendFile(__dirname + "/public/mazeChoice.html");
+		res.sendFile(__dirname + "/public/mazeChoice3.html");
 	});
 
 	/*

@@ -37,7 +37,6 @@ module.exports = function(app){
 				// then log the user in
 				req.session.user = username;
 				// Send "success" so that the frontend knows
-				// it is ok to redirect to /map
 				res.send("success");
 			} else {
 				// Otherwise, they might be trying to
@@ -45,12 +44,8 @@ module.exports = function(app){
 				res.send("error");
 			}
 		} else {
-			// Username is not taken, register a new user
-			// and log them in - success!
 			if(UserLog.registerUser(username, password)) {
 				req.session.user = username;
-				// Send "success" so that the frontend knows
-				// it is ok to redirect to /map
 				res.send("success");
 			} else {
 				// there was a problem registering
@@ -65,17 +60,39 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 */
 
 	app.get('/api/quesSet/:id', function(req, res){
-		if (req.params.id == 'express'){
-			fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+		if(UserLog.registerUser(username, password)) {
+			req.session.user = username;
+			if (req.params.id == 'express'){
+				fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+					if (err){
+						console.log(err);
+					} else {
+						res.send(data);
+						console.log('data is sent');
+					}
+				});
+			}
+		}else {
+			res.redirect("index.html");
+		}
+	});
+
+	app.get('/api/maze', function(req, res){
+		if(UserLog.registerUser(username, password)) {
+			req.session.user = username;
+			fs.readFile("mazearr.json", 'utf8', function(err, data){
 				if (err){
 					console.log(err);
 				} else {
 					res.send(data);
-					console.log('data is sent');
-				}
+					console.log('mazearr is sent');
+				}				
 			});
+		}else {
+			res.redirect("index.html");
 		}
 	});
+
 /*
 		// console.log('req.params.id' + req.params.id); 
 		// if (req.params.id  == "express"){
