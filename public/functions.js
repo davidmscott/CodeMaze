@@ -1,7 +1,11 @@
 var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
-// set guestionList variable
+var questionList;
+var rowz = 12;
+var colz = 20;
+var maze = "";
+var count = 0;
 
 function move(){
 	while (mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
@@ -113,3 +117,64 @@ function youLose() {
 	alert("You lose");
 	// write function for what happens when player loses/goes off the board...return to last question?
 }
+
+function buildMaze() {
+	maze += "<table>";
+
+	for (var i = 0; i < rowz ; i++) {
+		maze += '<tr id="row' + i + '">';
+		for (var j = 0; j < colz; j++) {
+			count++;
+			maze += '<td class="cell" id="col' + j + 'row' + i + '" >';
+			maze += "</td>";
+		}
+		maze += "</tr>";
+	}
+
+	maze += "</table>";
+
+	$("#board").html(maze);
+	$(".cell").css({
+		"backgroundColor": "black",
+		"height": $(".cell").width()
+	});
+	// $("input").css({
+	// 	"width": $("#board").width()
+	// });
+}
+
+function onResize() {
+	$(".cell").css({
+		"height": $(".cell").width()
+	});
+	$("#yourprocess").css({
+		"height": $("#board").height()
+	});
+	$("#board").css({
+		"height": $(".cell").height() * rowz
+	});
+	// $("input").css({
+	// 	"width": $("#board").width()
+	// });
+}
+
+function pressEnter(evt) {
+	if (evt.keyCode == 13) {
+		submitQ();
+	}
+}
+
+function getQ() {
+	var id = "express";
+	$.get("/api/quesSet/"+id,
+		function(data) {
+			questionList = JSON.parse(data);
+		}
+	);
+}
+
+$(document).ready(function() {
+	buildMaze();
+	getQ();
+	$("#answer").keyup(pressEnter);
+});

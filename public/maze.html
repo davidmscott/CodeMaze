@@ -121,62 +121,8 @@
 		<div id="question">Current Question</div>
 		<input id="answer" type="text" name="answer" placeholder="Type answer here">
 	</div>
-	<script>
 
-		var rowz = 12;
-		var colz = 20;
-		var maze = "";
-		var count = 0;
-
-		maze += "<table>";
-
-		for (var i = 0; i < rowz ; i++) {
-			maze += '<tr id="row' + i + '">';
-			for (var j = 0; j < colz; j++) {
-				count++;
-				maze += '<td class="cell" id="col' + j + 'row' + i + '" >';
-				maze += "</td>";
-			}
-			maze += "</tr>";
-		}
-
-		maze += "</table>";
-
-		$("#board").html(maze);
-		$(".cell").css({
-			"backgroundColor": "black",
-			"height": $(".cell").width()
-		});
-		// $("input").css({
-		// 	"width": $("#board").width()
-		// });
-
-		function onResize() {
-			$(".cell").css({
-				"height": $(".cell").width()
-			});
-			$("#yourprocess").css({
-				"height": $("#board").height()
-			});
-			$("#board").css({
-				"height": $(".cell").height() * rowz
-			});
-			// $("input").css({
-			// 	"width": $("#board").width()
-			// });
-		}
-
-		function pressEnter(evt) {
-			if (evt.keyCode == 13) {
-				submitQ();
-			}
-		}
-
-		$(document).ready(
-			$("#answer").keyup(pressEnter)
-		);
-
-	</script>
+	<script src="./functions.js"></script>
 
 </body>
 </html>
