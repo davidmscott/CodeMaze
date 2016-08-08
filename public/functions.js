@@ -4,7 +4,7 @@ var questionNum = -1;
 // set guestionList variable
 
 function move(){
-	while (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
+	while (mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
 			callQ();
@@ -65,14 +65,16 @@ function submitQ() {
 		direction = [-1, 0];
 		move();
 		return;
+	} else {
+		alert("Please enter a valid answer.");
 	}
 }
 
 function displayPlayer() {
 	// setTimeout(function() {
-		if (direction !== [0,0]) {
+		if (direction[0] !== 0 || direction[1] !== 0) {
 			$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
-				'background-color': 'none',
+				'background-color': 'transparent',
 				'background-image': 'none'
 			});
 		}
