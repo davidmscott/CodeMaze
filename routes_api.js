@@ -60,8 +60,8 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 */
 
 	app.get('/api/quesSet/:id', function(req, res){
-		if(UserLog.registerUser(username, password)) {
-			req.session.user = username;
+	//	if(UserLog.registerUser(username, password)) {
+	//		req.session.user = username;
 			if (req.params.id == 'express'){
 				fs.readFile("expressQuestions.json", 'utf8', function(err, data){
 					if (err){
@@ -72,14 +72,14 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 					}
 				});
 			}
-		}else {
-			res.redirect("index.html");
-		}
+	//	}else {
+	//		res.redirect("index.html");
+	//	}
 	});
 
 	app.get('/api/maze/id:', function(req, res){
-		if(UserLog.registerUser(username, password)) {
-			req.session.user = username;
+	//	if(UserLog.registerUser(username, password)) {
+	//		req.session.user = username;
 			if (req.params.id == 'express'){
 				fs.readFile("mazearr.json", 'utf8', function(err, data){
 					if (err){
@@ -90,9 +90,9 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 					}
 				});
 			}
-		}else {
-			res.redirect("index.html");
-		}
+	//	}else {
+	//		res.redirect("index.html");
+	//	}
 	});
 
 /*
