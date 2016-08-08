@@ -173,8 +173,18 @@ function getQ() {
 	);
 }
 
+function getMaze() {
+	var id = "express";
+	$.get("/api/maze/" + id,
+		function(data) {
+			mazearray = JSON.parse(data);
+		}
+	);
+}
+
 $(document).ready(function() {
 	buildMaze();
 	getQ();
+	getMaze();
 	$("#answer").keyup(pressEnter);
 });
