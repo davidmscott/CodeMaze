@@ -6,11 +6,11 @@ var questionNum = -1;
 function move(){
 	while (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
-		if (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]] === 2) {
+		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
 			callQ();
 			return;
 		}
-		if (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]] === 3) {
+		if (mazearray[currentpos[0]][currentpos[1]] === 3) {
 			youWin();
 			return;
 		}
