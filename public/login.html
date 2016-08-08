@@ -18,6 +18,7 @@
 
 	<script>
 		function tryToLogin() {
+			console.log('trying to login')
 			$.post('/api/login',
 			{
 				username: $('#username').val(),

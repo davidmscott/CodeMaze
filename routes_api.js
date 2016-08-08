@@ -54,27 +54,34 @@ module.exports = function(app){
 		}
 	});
 
+	app.post('/api/logout', function(req, res){
+		console.log ("reached logout");
+		req.session.user = undefined;
+		res.send("success");
+		res.redirect("/login");
+	});
+
 /*
 var testQuestion = require('./expressQuestions2.json');
 console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 */
 
 	app.get('/api/quesSet/:id', function(req, res){
-	//	if(UserLog.registerUser(username, password)) {
-	//		req.session.user = username;
-			if (req.params.id == 'express'){
-				fs.readFile("expressQuestions.json", 'utf8', function(err, data){
-					if (err){
-						console.log(err);
-					} else {
-						res.send(data);
-						console.log('data is sent');
-					}
-				});
-			}
-	//	}else {
-	//		res.redirect("index.html");
-	//	}
+		console.log('username = ' + req.session.user);
+		if (!req.session.user) {
+			res.send("error");
+			return;
+		}
+		if (req.params.id == 'express'){
+			fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+				if (err){
+					console.log(err);
+				} else {
+					res.send(data);
+					console.log('data is sent');
+				}
+			});
+		}
 	});
 
 	app.get('/api/maze/:id', function(req, res){

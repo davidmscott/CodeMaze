@@ -14,14 +14,19 @@
 			console.log ('testing is starting');
 			$('#outStatement').html("doing a jquery get for expressQuestions.json ");
 			id = "express";
+
 			$.get("/api/quesSet/"+id,
-				function (data)
-				{ //handle the data it returns
+				function (data){
+				 	if (data == 'error'){
+						window.location.href = "index.html";
+					} else {
+					//handle the data it returns
 					newData = JSON.parse(data);
 					$('#outStatement').html("from file expressQuestions.json "); 
 					$('#output').html(""); //reset our output element
 					$('#output').append('<p>' + newData.expressQuestions[5].note + '</p>');
-				}//,'json'
+					}//,'json'
+				}
 			);
 		}
 		$(document).ready(function() {
