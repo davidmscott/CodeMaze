@@ -2,6 +2,7 @@ var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
 var questionList;
+var mazearray;
 var rowz = 12;
 var colz = 20;
 var maze = "";
@@ -83,14 +84,14 @@ function displayPlayer() {
 			});
 		}
 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
-			for (var i = -1; i <= 1; i + 2) {
+			for (var i = -1; i <= 1; i = i + 2) {
 				if (mazearray[currentpos[0] + i][currentpos[1]]) {
 					$('#col' + (currentpos[0] + i) + 'row' + currentpos[1]).css({
 					'background-image': 'none'
 					});
 				}
 			}
-			for (var j = -1; j <= 1; j + 2) {
+			for (var j = -1; j <= 1; j = j + 2) {
 				if (mazearray[currentpos[0]][currentpos[1] + j]) {
 					$('#col' + currentpos[0] + 'row' + (currentpos[1] + j)).css({
 					'background-image': 'none'
@@ -165,26 +166,30 @@ function pressEnter(evt) {
 }
 
 function getQ() {
+	console.log("get q");
 	var id = "express";
-	$.get("/api/quesSet/"+id,
+	$.get("/api/quesSet/" + id,
 		function(data) {
 			questionList = JSON.parse(data);
+			getMaze();
 		}
 	);
 }
 
 function getMaze() {
+	console.log("get maze");
 	var id = "express";
 	$.get("/api/maze/" + id,
 		function(data) {
 			mazearray = JSON.parse(data);
+			move();
 		}
 	);
 }
 
 $(document).ready(function() {
+	console.log("ready");
 	buildMaze();
 	getQ();
-	getMaze();
 	$("#answer").keyup(pressEnter);
 });

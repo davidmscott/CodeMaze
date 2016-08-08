@@ -1,4 +1,4 @@
-{"expressQuestions" :[
+[
 
 	{ 	"questionNo": 1,
 		"down": "mkdir name",
@@ -79,4 +79,4 @@
 		"hint": "Ready to start the Node server.",
 		"note": "If any changes are made to the name.js file the server has to be restarted.  Using nodemon instead of node,  will restart the server automatically when a server file is saved."
 	}
-]}
+]
