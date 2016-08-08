@@ -59,37 +59,24 @@ module.exports = function(app){
 		}
 	});
 
-//app.local.expQuestions = require('./expressQuestions.json');
+/*
+var testQuestion = require('./expressQuestions2.json');
+console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
+*/
 
 	app.get('/api/quesSet/:id', function(req, res){
 		//Determine which question set to send...
-		console.log('received request to send expressQuestions.json');
-		console.log (req.params.id);
 		if (req.params.id == 'express'){
-			fs.readFile("expressQuestions.json", 'utf8', function(err, data){
-				console.log(data.expressQuestion);
-				question = data.expressQuestions[0];
+			var testQuestion = fs.readFile("expressQuestions.json", 'utf8', function(err, data){
+				//console.log('data.expressQuestion is = '+ newData);
 				if (err){
 					console.log(err);
 				} else {
 					res.send(data);
-					console.log(question);
 					console.log('data is sent');
 				}
 			});
 		}
 	});
-
-/*
-		// console.log('req.params.id' + req.params.id); 
-		// if (req.params.id  == "express"){
-		// 	console.log("express received and sending the file.")
-		//	res.send(fs.readFileSync("expressQuestion.json")); //option 1
-			//res.sendFile(__dirname+expressQuestion.json); //option 2
-		// } else {
-		// 	res.send("error");
-		// }
-	});
-*/
 
 };

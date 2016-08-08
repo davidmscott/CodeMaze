@@ -14,30 +14,19 @@
 			$('#outStatement').html("doing a jquery get for expressQuestions.json ");
 			id = "express";
 			$.get("/api/quesSet/"+id,
-				{
-
-				},
 				function (data)
 				{ //handle the data it returns
-					console.log('data = ');
-					console.log(data);
+					newData = JSON.parse(data) //JSON.parse(data);
 					$('#outStatement').html("from file expressQuestions.json "); 
 					$('#output').html(""); //reset our output element
-					$('#output').append('<p>' + data + '</p>');
-				} //,'json'
+					$('#output').append('<p>' + newData.expressQuestions[5].note + '</p>');
+				}//,'json'
 			);
 		}
 		$(document).ready(function() {
 			//testing();
 			$('#request').click(testing);
-		});
-
-/*		$.get( "ajax/test.html", function( data ) {
-  $( ".result" ).html( data );
-  alert( "Load was performed." );
-});
-*/
-
+		})
 
 
 		
