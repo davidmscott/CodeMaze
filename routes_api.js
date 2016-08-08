@@ -65,10 +65,8 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 */
 
 	app.get('/api/quesSet/:id', function(req, res){
-		//Determine which question set to send...
 		if (req.params.id == 'express'){
-			var testQuestion = fs.readFile("expressQuestions.json", 'utf8', function(err, data){
-				//console.log('data.expressQuestion is = '+ newData);
+			fs.readFile("expressQuestions.json", 'utf8', function(err, data){
 				if (err){
 					console.log(err);
 				} else {
@@ -78,5 +76,16 @@ console.log ("testQuestion = " + testQuestion.expressQuestions[0].down);
 			});
 		}
 	});
+/*
+		// console.log('req.params.id' + req.params.id); 
+		// if (req.params.id  == "express"){
+		// 	console.log("express received and sending the file.")
+		//	res.send(fs.readFileSync("expressQuestion.json")); //option 1
+			//res.sendFile(__dirname+expressQuestion.json); //option 2
+		// } else {
+		// 	res.send("error");
+		// }
+	});
+*/
 
 };

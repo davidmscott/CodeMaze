@@ -16,7 +16,7 @@
 			$.get("/api/quesSet/"+id,
 				function (data)
 				{ //handle the data it returns
-					newData = JSON.parse(data) //JSON.parse(data);
+					newData = JSON.parse(data);
 					$('#outStatement').html("from file expressQuestions.json "); 
 					$('#output').html(""); //reset our output element
 					$('#output').append('<p>' + newData.expressQuestions[5].note + '</p>');
@@ -24,11 +24,8 @@
 			);
 		}
 		$(document).ready(function() {
-			//testing();
 			$('#request').click(testing);
-		})
-
-
+		});
 		
 	</script>
 </head>
@@ -41,6 +38,5 @@
 	</div>
 	<div id="outStatement"></div>
 	<div id="output"></div>
-
 </body>
 </html>

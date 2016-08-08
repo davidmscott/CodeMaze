@@ -1,17 +1,16 @@
-var xpos = 2, ypos = 0;
-var currentpos = [xpos,ypos];
+var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
 // set guestionList variable
 
 function move(){
-	while (mazearray[xpos + direction[0]][ypos + direction[1]]) {
+	while (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
-		if (mazearray[xpos + direction[0]][ypos + direction[1]] === 2) {
+		if (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]] === 2) {
 			callQ();
 			return;
 		}
-		if (mazearray[xpos + direction[0]][ypos + direction[1]] === 3) {
+		if (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]] === 3) {
 			youWin();
 			return;
 		}
@@ -26,22 +25,22 @@ function callQ() {
 	// need to create :hover and assign to possible answers to arrows
 	if (questionList[questionNum].up !== "") {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] - 1)).css({
-			'background-image': './public/Images/up.png/'
+			'background-image': "url('./Images/up.png')"
 		});
 	}
 		if (questionList[questionNum].right !== "") {
 		$('#col' + (currentpos[0] + 1)+ 'row' + currentpos[1]).css({
-			'background-image': './public/Images/right.png/'
+			'background-image': "url('./Images/right.png')"
 		});
 	}
 		if (questionList[questionNum].down !== "") {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] + 1)).css({
-			'background-image': './public/Images/down.png/'
+			'background-image': "url('./Images/down.png')"
 		});
 	}
 		if (questionList[questionNum].left !== "") {
 		$('#col' + (currentpos[0] - 1) + 'row' + currentpos[1]).css({
-			'background-image': './public/Images/left.png/'
+			'background-image': "url('./Images/left.png')"
 		});
 	}
 }
@@ -70,7 +69,7 @@ function submitQ() {
 }
 
 function displayPlayer() {
-	setTimeout(function() {
+	// setTimeout(function() {
 		if (direction !== [0,0]) {
 			$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 				'background-color': 'none',
@@ -93,12 +92,12 @@ function displayPlayer() {
 				}
 			}
 		}
-		xpos += direction[0];
-		ypos += direction[1];
+		currentpos[0] += direction[0];
+		currentpos[1] += direction[1];
 		$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
-			'background-image': './public/Images/player.png'
+			'background-image': "url('./Images/player.png')"
 		});
-	}, 500);
+	// }, 500);
 }
 
 function youWin() {

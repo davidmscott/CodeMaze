@@ -1,13 +1,16 @@
 body {
-	background-image: url("./Images/IMG_5422.jpg");
+	/*background-image: url("./Images/IMG_5422.jpg");*/
 	/*background-image: url("./Images/Jimmy_Kuehnle_Jimmy_in_Binary_binary_drawing_detail.jpg");*/
-	/*something cool for later: http://www.w3schools.com/cssref/pr_background-blend-mode.asp*/
+	/*maybe something cool for later: http://www.w3schools.com/cssref/pr_background-blend-mode.asp*/
+	background-image: url("./Images/Drawing_in_Space_a_maze_1.jpg");
+	background-size: cover;
+	
 }
-* {
+/** {
    border: 1px solid red !important;
-}
+}*/
 .jumbotron {
-	background-color: linen;
+	background-color: purple;
 }
 
 h1	{
@@ -29,10 +32,6 @@ h2 {
 }
 /*----------Begin clickable images array------------------------------*/
 
-.row {
-
-
-}
 
 .container {
 	width: 100%;
@@ -51,7 +50,13 @@ h2 {
 }
 
 .col1 {
-	width:32%
+	/*display: inline;*/
+	width: 32%
 	vertical-align: middle;
-	margin: auto;
+	margin-left: 2%;
+	background-color: white;
+}
+
+img {
+	width: 30%;
 }
