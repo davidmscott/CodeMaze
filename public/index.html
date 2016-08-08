@@ -36,14 +36,11 @@
 					 <div class="col-sm-6"><input type="button" id="register" value="register"></div>
 				</div>
 			</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 131952f8e4db6f1c1c2f3953caee740314ac3c14
 	
 <script>
 
 		function tryToLogin() {
+			console.log('trying to login');
 			$.post('/api/login',
 			{
 				username: $('#username').val(),
@@ -59,6 +56,7 @@
 
 		function tryToRegister() {
 			// debugger;
+			console.log('trying to register');
 			$.post('/api/register',
 			{
 				username: $('#username').val(),

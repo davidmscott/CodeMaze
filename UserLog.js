@@ -32,7 +32,7 @@ function checkLogin (username, password){
 //Refister a new user, confirm registration was successful, check that username is unique
 
 function registerUser(username, password) {
-	if(userExists(username)) {
+	if(userExists(username) || username == undefined || username == " " || password == undefined) {
 		return false;
 	}
 	//Store users in object
