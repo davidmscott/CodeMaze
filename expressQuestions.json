@@ -32,7 +32,7 @@
 
 	{
 		"questionNo": 4,
-		"right": "npm install --save express OR npm install express --save", 
+		"right": "npm install express --save", 
 		"down": "1",
 		"left": "2",
 		"up": "", 

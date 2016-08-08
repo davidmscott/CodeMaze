@@ -1,7 +1,7 @@
 var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
-var questionList, mazearray, timer;
+var questionList, mazearray, timer, dir;
 var rowz = 12;
 var colz = 20;
 var maze = "";
@@ -28,11 +28,17 @@ function move1() {
 	if (moving && mazearray[currentpos[0] + direction[0]] && mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
 		if (mazearray[currentpos[0]][currentpos[1]] === 2) {
+			if (questionList[questionNum]) {
+				$("#correctSteps").append('<p>' + (questionNum + 1) + '. ' + questionList[questionNum][dir] + '</p><br />');
+			}
 			callQ();
 			moving = false;
 			return;
 		}
 		if (mazearray[currentpos[0]][currentpos[1]] === 3) {
+			if (questionList[questionNum]) {
+				$("#correctSteps").append('<p>' + (questionNum + 1) + '. ' + questionList[questionNum][dir] + '</p>');
+			}
 			youWin();
 			clearInterval(timer);
 			return;
@@ -76,6 +82,7 @@ function submitQ() {
 		alert("You must type your answer in the text box.");
 	} else if (answer === questionList[questionNum].up) {
 		direction = [0, -1];
+		dir = "up";
 		// move();
 		moving = true;
 		return;
@@ -83,16 +90,19 @@ function submitQ() {
 		direction = [1, 0];
 		// move();
 		moving = true;
+		dir = "right";
 		return;
 	} else if (answer === questionList[questionNum].down) {
 		direction = [0, 1];
 		// move();
 		moving = true;
+		dir = "down";
 		return;
 	} else if (answer === questionList[questionNum].left) {
 		direction = [-1, 0];
 		// move();
 		moving = true;
+		dir = "left";
 		return;
 	} else {
 		alert("Please enter a valid answer.");
@@ -133,7 +143,9 @@ function displayPlayer() {
 
 function youWin() {
 	// temporary
-	alert("You win");
+	$('.cell').css({
+		'background-color': 'transparent'
+	});
 	// write function for what happens when player completes the maze
 }
 
