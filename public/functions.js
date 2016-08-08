@@ -42,21 +42,45 @@ function callQ() {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] - 1)).css({
 			'background-image': "url('./Images/up.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + currentpos[0] + 'row' + (currentpos[1] - 1)).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].up);
+			}
+		);
 	}
 		if (questionList[questionNum].right !== "") {
 		$('#col' + (currentpos[0] + 1)+ 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/right.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + (currentpos[0] + 1)+ 'row' + currentpos[1]).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].right);
+			}
+		);
 	}
 		if (questionList[questionNum].down !== "") {
 		$('#col' + currentpos[0] + 'row' + (currentpos[1] + 1)).css({
 			'background-image': "url('./Images/down.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + currentpos[0] + 'row' + (currentpos[1] + 1)).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].down);
+			}
+		);
 	}
 		if (questionList[questionNum].left !== "") {
 		$('#col' + (currentpos[0] - 1) + 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/left.png')"
 		});
+		//On hover print potential answer to div 
+		$('#col' + (currentpos[0] - 1) + 'row' + currentpos[1]).hover(
+			function() {
+				$( '#potentialAnswer' ).html(questionList[questionNum].left);
+			}
+		);
 	}
 }
 
