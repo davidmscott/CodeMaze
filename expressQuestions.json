@@ -3,7 +3,7 @@
 	{ 	"questionNo": 1,
 		"down": "mkdir name",
 		"left": "rm name",
-		"right": "touch name",
+		"right": "md name",
 		"up": "", 
 		"hint": "Create location to install Express in.",
 		"note": "Directory name can't have express in it and cannot contain capital letters.  mkdir is short for make directory."
@@ -14,7 +14,7 @@
 		"questionNo": 2,
 		"right": "cd name",
 		"down": "mv name",
-		"left": "man name",
+		"left": "goto name",
 		"up": "", 
 		"hint": "How to get into the location where to install Express.",
 		"note": "cd is short for change directory."
