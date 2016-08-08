@@ -62,6 +62,7 @@ animation: Purple 33s ease infinite;
 */
 
 #answer {
+  color: black;
 	width: 99%;
 	border: 2px dotted gray;
 	border-radius: 6px;
