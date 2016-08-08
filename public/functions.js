@@ -1,17 +1,16 @@
-var xpos = 2, ypos = 0;
-var currentpos = [xpos,ypos];
+var currentpos = [2, 0];
 var direction = [0, 0];
 var questionNum = -1;
 // set guestionList variable
 
 function move(){
-	while (mazearray[xpos + direction[0]][ypos + direction[1]]) {
+	while (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]]) {
 		displayPlayer();
-		if (mazearray[xpos + direction[0]][ypos + direction[1]] === 2) {
+		if (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]] === 2) {
 			callQ();
 			return;
 		}
-		if (mazearray[xpos + direction[0]][ypos + direction[1]] === 3) {
+		if (mazearray[currentpos[0] + direction[0]][currentpos[1] + direction[1]] === 3) {
 			youWin();
 			return;
 		}
@@ -93,8 +92,8 @@ function displayPlayer() {
 				}
 			}
 		}
-		xpos += direction[0];
-		ypos += direction[1];
+		currentpos[0] += direction[0];
+		currentpos[1] += direction[1];
 		$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 			'background-image': "url('./Images/player.png')"
 		});
