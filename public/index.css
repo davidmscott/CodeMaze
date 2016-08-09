@@ -24,15 +24,15 @@ body {
 	margin:0;
 	padding:0;
 	width: 100%;
-	background: green;
-    background: -webkit-radial-gradient( closest-side lightgreen, limegreen, darkviolet, forestgreen); /* For Safari 5.1 to 6.0 */
-    background: -o-radial-gradient( closest-side, lightgreen, limegreen, darkviolet, forestgreen); /* For Opera 11.1 to 12.0 */
-    background: -moz-radial-gradient(closest-side, lightgreen, limegreen, darkviolet, forestgreen); /* For Firefox 3.6 to 15 */
-    background: radial-gradient(closest-side, lightgreen, limegreen, darkviolet, forestgreen);  /*Standard syntax (must be last) */
+	background: palegreen;
+    background: -webkit-linear-gradient(to right, honeydew, palegreen); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right, honeydew, palegreen); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right, honeydew, palegreen); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, honeydew, palegreen);  /*Standard syntax (must be last) */
     background-size: 1200% 1200%;
-    -webkit-animation: jumbo 15s ease;
-	-moz-animation: jumbo 15s ease;
-	animation: jumbo 15s ease;
+    -webkit-animation: jumbo 2s ease infinite;
+	-moz-animation: jumbo 2s ease infinite;
+	animation: jumbo 2s ease infinite;
 }
 
 @keyframes jumbo {
@@ -57,7 +57,7 @@ body {
 
 h1, h2 {
 	text-align: center;
-	color: crimson ;
+	color: crimson;
 	font-size: 30px;
 	font-weight: bold;
 	font-family: 'Inconsolata', monospace;
