@@ -10,18 +10,19 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" type="text/css" href="index.css">
+	
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-
+	<link rel="stylesheet" type="text/css" href="index.css">
 
 </head>
 <body>
 
 <div class="jumbotron">
-	  <h1>Practice Your Terminal Commands</h1> 
+	  <h1>CodeMaze</h1> 
 	  <h2>Log In or Register to Play</h2> 
 </div>
-<div id = container>
+
+<div id = "container">
 
 
 			<div id = "logInHere">
@@ -35,8 +36,8 @@
 					 <div class="col-sm-6"><input type="password" id="password" placeholder = "Password"></div>
 					 <div class="col-sm-6"><input type="button" id="register" value="register"></div>
 				</div>
-			</div>
-	
+		</div>
+</div>
 <script>
 
 		function tryToLogin() {
@@ -74,7 +75,7 @@
 			$('#submit').click(tryToLogin);
 			$('#register').click(tryToRegister);
 		});
-	</script>
+</script>
 
 
 </body>

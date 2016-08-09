@@ -1,8 +1,7 @@
 body {
-
 	margin:0;
 	padding:0;
-  	background-image: linear-gradient(yellow 8%, darkorange);
+  	background-image: url("./Images/marinebio_braincoral.jpg");
 	background-size: cover;
 }
 
@@ -11,6 +10,9 @@ body {
    border: 1px solid red !important;
 }
 */
+
+
+
 .row {
 	margin-left: 40px;
 	margin-right: 20 px;
@@ -22,15 +24,15 @@ body {
 	margin:0;
 	padding:0;
 	width: 100%;
-    background: linear-gradient (yellow, gold, orange, darkorange); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient( yellow, gold, orange, darkorange); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(yellow, gold, orange, darkorange); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(yellow, gold, orange, darkorange); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(yellow, gold, orange, darkorange);  /*Standard syntax (must be last) */
+	background: green;
+    background: -webkit-radial-gradient( closest-side lightgreen, limegreen, darkviolet, forestgreen); /* For Safari 5.1 to 6.0 */
+    background: -o-radial-gradient( closest-side, lightgreen, limegreen, darkviolet, forestgreen); /* For Opera 11.1 to 12.0 */
+    background: -moz-radial-gradient(closest-side, lightgreen, limegreen, darkviolet, forestgreen); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(closest-side, lightgreen, limegreen, darkviolet, forestgreen);  /*Standard syntax (must be last) */
     background-size: 1200% 1200%;
-    -webkit-animation: jumbo 15s ease infinite;
-	-moz-animation: jumbo 15s ease infinite;
-	animation: jumbo 15s ease infinite;*/
+    -webkit-animation: jumbo 15s ease;
+	-moz-animation: jumbo 15s ease;
+	animation: jumbo 15s ease;
 }
 
 @keyframes jumbo {
