@@ -25,19 +25,19 @@ body {
 	padding:0;
 	width: 100%;
 	background: palegreen;
-    background: -webkit-linear-gradient(to right, honeydew, palegreen); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(to right, honeydew, palegreen); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(to right, honeydew, palegreen); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, honeydew, palegreen);  /*Standard syntax (must be last) */
+    background: -webkit-radial-gradient( honeydew, lemonchiffon, palegreen, lightblue, greenyellow, lightyellow, lightpink,  lemonchiffon, palegreen); /* For Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(honeydew,  lemonchiffon, palegreen, lightblue,  greenyellow, lightyellow, lightpink,  lemonchiffon, palegreen); /* For Opera 11.1 to 12.0 */
+    background: -moz-radial-gradient( honeydew, lemonchiffon, palegreen, lightblue, greenyellow, lightpink,  lemonchiffon, palegreen); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(honeydew, lemonchiffon, palegreen, lightblue,  greenyellow, lightpink,  lemonchiffon, palegreen);  /*Standard syntax (must be last) */
     background-size: 1200% 1200%;
-    -webkit-animation: jumbo 2s ease infinite;
-	-moz-animation: jumbo 2s ease infinite;
-	animation: jumbo 2s ease infinite;
+    -webkit-animation: jumbo 10s ease infinite;
+	-moz-animation: jumbo 10s ease infinite;
+	animation: jumbo 10s ease infinite;
 }
 
 @keyframes jumbo {
-    0%{background-position:50% 0%}
-    50%{background-position:50% 100%}
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
     100%{background-position:50% 0%}
     /*animating the background-position property not the colors.*/
     /*need to animate perpendicular to your gradient otherwise won't see anything. 
@@ -46,12 +46,12 @@ body {
 @-webkit-keyframes jumbo {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    100%{background-position:50% 0%}
 }
 @-moz-keyframes jumbo {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    100%{background-position:50% 0%}
 }
 
 
