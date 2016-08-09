@@ -29,7 +29,7 @@ function move1() {
 		}
 	} else if (moving) {
 		youLose();
-		clearInterval(timer);
+		// clearInterval(timer);
 		return;
 	}
 }
@@ -156,7 +156,24 @@ function youLose() {
 	$('#col' + currentpos[0] + 'row' + currentpos[1]).css({
 		'background-image': "url('./Images/player-lose.png')"
 	});
-	alert("You lose");
+	moving = false;
+	setTimeout(function() {
+		maze = "";
+		count = 0;
+		buildMaze();
+		questionNum = -1;
+		currentpos = [2,0];
+		direction = [0,0];
+		dir = "";
+		$(".cell").css({
+			'background-image': 'none',
+			'background-color': 'black'
+		});
+		$("#potentialAnswer").html("Potential Answer");
+		$("#correctSteps").html("");
+		moving = true;
+	}, 3500);
+	// alert("You lose");
 	// write function for what happens when player loses/goes off the board...return to last question?
 }
 
